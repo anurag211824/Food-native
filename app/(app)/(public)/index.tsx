@@ -1,5 +1,6 @@
 import AppleAuthButton from "@/components/auth/AppleAuthButton";
 import GoogleAuthButton from "@/components/auth/GoogleAuthButton";
+import SmoothInfiniteScroll from "@/components/SmoothInfiniteScroll";
 import { Fonts } from "@/constants/theme";
 import React from "react";
 import {
@@ -18,7 +19,11 @@ export default function Index() {
   };
   return (
     <View style={styles.container}>
-      <View style={styles.infiniteScrollContainer}></View>
+      <View style={styles.infiniteScrollContainer}>
+        <SmoothInfiniteScroll scrollDirection="down" iconSet="set1" />
+        <SmoothInfiniteScroll scrollDirection="up" iconSet="set2" />
+        <SmoothInfiniteScroll scrollDirection="down" iconSet="set3" />
+      </View>
       <View style={styles.contentContainer}>
         <Image
           source={require("@/assets/images/wolt-logo.png")}
@@ -72,8 +77,11 @@ const styles = StyleSheet.create({
   },
   infiniteScrollContainer: {
     flex: 0.8,
-    // borderWidth: 2,
-    // borderColor: "red",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 4,
+    overflow: "hidden",
   },
   brandLogo: {
     width: "100%",
